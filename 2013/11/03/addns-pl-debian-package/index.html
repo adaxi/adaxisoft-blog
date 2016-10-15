@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Debian package for addns</title>
+  <meta name="description" content="As I mentioned in my previous article have been using addns to update my DynHOST records at OVH. In the mean time I have created a Debian package to ease the...">
+
+  
+  
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="canonical" href="/2013/11/03/addns-pl-debian-package/">
+  <link rel="alternate" type="application/rss+xml" title="Home made code!" href="/feed.xml">
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+  
+  <!-- font-smoothing is only applied on dark themes -->
+  <body class="font-smoothing">
+
+    <header class="px-2 clearfix">
+  <!-- <div class="left-lg absolute-lg left-0 top-0 sm-width-full mt-2">
+    <a class="no-underline-hover px-1" href="/">
+      <span class="inline-block h4 hide-sm ml-2">&#x261c;</span>
+    </a>
+    <a class="italic no-underline" href="/">
+       home
+    </a>
+  </div> -->
+  <div class="right-lg absolute-lg right-0 top-0">
+    <ul class="mt-1 mt-lg-2 mr-2 mr-lg-3">
+      <li class="inline-block block-lg text-right ml-1 ml-lg-0">
+        <a class="italic h4 bold no-underline" href="/">
+          <!-- Home made code! -->
+          Home
+        </a>
+      </li>
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</header>
+
+
+    <div>
+      <article class="container mx-auto px-2" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="mt-4 mb-2 clearfix header-text">
+    <h1 class="h0 inline-block py-2 mt-4 header-title">Debian package for addns</h1>
+    <div class="clearfix mb-4 py-1">
+      <p class="h4 lh-condensed"><time datetime="2013-11-03T15:54:59+00:00" itemprop="datePublished">Nov 3, 2013</time></p>
+      <div class="col-1 sm-width-full border-top-thick">
+      </div>
+    </div>
+  </div>
+
+  <div class="prose py-4" itemprop="articleBody">
+      <p>As I mentioned in my previous article have been using addns to update my DynHOST records at OVH. In the mean time I have created a Debian package to ease the installation procedure. Add the repository. It should work for all Debian based distributions (nevermind the wheezy reference).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb http://apt.adaxisoft.be/debian wheezy main"</span> <span class="se">\ </span>
+	&gt; /etc/apt/sources.list.d/media.list
+wget -q http://apt.adaxisoft.be/public.gpg.key -O- | apt-key add -
+</code></pre>
+</div>
+
+<p>Install the package.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get update
+apt-get install addns
+</code></pre>
+</div>
+
+<p>This will have:</p>
+<ul>
+	<li>added addns to your path</li>
+	<li>created a configuration file in <em>/etc/addns.conf</em>, this file still needs to be configured to your needs.</li>
+	<li>created a file in /etc/cron.d/addns.cron, this file executes addns every 15 minutes, to make sure your record is always up to date.</li>
+</ul>
+<p>To configure addns you will need to update the configuration file /etc/addns.conf, you should modify at least:</p>
+<ul>
+	<li><em>update_host</em>, this is the record that you want updated.</li>
+	<li><em>username</em>, this is the username of the account that is allowed to modify the record.</li>
+	<li><em>password</em>, this is the password of the account that is allowed to modify the record.</li>
+</ul>
+
+  </div>
+</article>
+
+<div class="container mx-auto px-2 py-2 clearfix">
+  <!-- Use if you want to show previous and next for all posts. -->
+
+
+
+  <div class="col-4 sm-width-full left mr-lg-4 mt-3">
+    <a class="no-underline-hover py-1 block" href="/2010/10/23/ovh-configuration-for-addns/">
+      <span class="h5 bold">Previous</span>
+      <p class="bold h3 link-primary mb-1">OVH configuration for addns</p>
+      <p>DynHOST from OVH are very useful if you have a dynamic IP and want to have a DNS entry always...</p>
+    </a>
+  </div>
+  
+  
+
+</div>
+
+    </div>
+
+    <div class="container mx-auto clearfix mt-2 mt-lg-4 px-2">
+  <div class="border-top-thick">
+    <p class="col-8 sm-width-full left py-2 mb-0">
+    	I'm an all-round developer, and this is my blog!
+    </p>
+    <p class="list-reset right clearfix sm-width-full py-2 mb-2 mb-lg-0">
+    	<a class="text-accent" href="https://github.com/adaxi">Github</a>
+	<a class="text-accent" href="https://twitter.com/adaxi">Twitter</a>
+    </p>
+ </div>
+</div>
+
+
+  </body>
+
+</html>
