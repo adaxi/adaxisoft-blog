@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="/blog/assets/style.css">
 
   <link rel="canonical" href="/blog/2013/11/03/addns-pl-debian-package/">
-  <link rel="alternate" type="application/rss+xml" title="Home made code!" href="/blog/feed.xml">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
@@ -64,7 +63,7 @@
   <div class="prose py-4" itemprop="articleBody">
       <p>As I mentioned in my previous article have been using addns to update my DynHOST records at OVH. In the mean time I have created a Debian package to ease the installation procedure. Add the repository. It should work for all Debian based distributions (nevermind the wheezy reference).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb http://apt.adaxisoft.be/debian wheezy main"</span> <span class="se">\ </span>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb http://apt.adaxisoft.be/debian wheezy main"</span> <span class="se">\ </span>
 	&gt; /etc/apt/sources.list.d/media.list
 wget -q http://apt.adaxisoft.be/public.gpg.key -O- | apt-key add -
 </code></pre>
@@ -72,7 +71,7 @@ wget -q http://apt.adaxisoft.be/public.gpg.key -O- | apt-key add -
 
 <p>Install the package.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get update
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt-get update
 apt-get install addns
 </code></pre>
 </div>
